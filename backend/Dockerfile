@@ -20,5 +20,4 @@ RUN uv lock
 RUN uv sync
 COPY . .
 
-# CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
-CMD ["sleep", "infinity"]
+CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]

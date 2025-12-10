@@ -19,5 +19,7 @@
     },
     "mounts": [
         "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
-    ]
+    ],
+    "overrideCommand": true,
+    "postStartCommand": "sleep infinity"
 }
