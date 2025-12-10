@@ -1,0 +1,23 @@
+{
+    "name": "Hello Backend Container",
+    "dockerComposeFile": [
+        "../../docker-compose.yaml"
+    ],
+    "service": "backend-service",
+    "workspaceFolder": "/app/backend",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.vscode-pylance"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
+    ]
+}

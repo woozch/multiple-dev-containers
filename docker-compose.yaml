@@ -1,0 +1,33 @@
+services:
+  backend-service:
+    build:
+      context: ./backend
+    container_name: hello-backend-service
+    # ports:
+    #  - "8001:8001"
+    volumes:
+      # where .git directory is located
+      - .:/app
+    # working_dir: /app/backend
+    # command: uv run uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+    # command: uv run python -m main
+    command: sleep infinity
+
+  frontend-service:
+    build:
+      context: ./frontend
+    container_name: hello-frontend-service
+    # ports:
+    #  - "5173:5173"
+    volumes:
+      # where .git directory is located
+      - .:/app
+      # node_modules to volume for caching
+      - frontend_modules_volume:/app/frontend/node_modules
+    depends_on:
+      - backend-service
+    # working_dir: /app/frontend
+    # command: "npm run dev -- --host 0.0.0.0 --port 5173"
+    command: "sleep infinity"
+volumes:
+  frontend_modules_volume:

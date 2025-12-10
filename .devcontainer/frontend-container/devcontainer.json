@@ -1,0 +1,22 @@
+{
+	"name": "Hello Frontend Container",
+	"dockerComposeFile": [
+		"../../docker-compose.yaml"
+	],
+	"service": "frontend-service",
+	"workspaceFolder": "/app/frontend",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			]
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
+	]
+}
